@@ -149,8 +149,7 @@ public class Ticket {
      */
     public void assign(String tech) {
         checkNotClosed();
-        // BUG CORRIGÉ : l'ancienne version continuait après le if et
-        // affichait "Ticket déjà assigné" même lors d'une première assignation.
+
         if (this.statut != StatutTicket.OPEN) {
             throw new IllegalStateException(
                     "Impossible d'assigner : le ticket n'est pas en statut OPEN (statut actuel : "
