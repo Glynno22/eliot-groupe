@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class CSVTicketRepository implements TicketRepository {
 
-    /** En-tête CSV pour la meilleure lisibilité du fichier. */
+    /** En-tête CSV pour la lisibilité humaine du fichier. */
     private static final String HEADER =
             "id,title,description,requestedBy,service,priority,statut," +
                     "assignedTo,assignedAt,occurredAt,createdAt,updatedAt,resolvedAt,closedAt";
@@ -35,9 +35,9 @@ public class CSVTicketRepository implements TicketRepository {
         load();
     }
 
-
+    // ══════════════════════════════════════════════════════════════════════════
     //  Chargement / persistance
-
+    // ══════════════════════════════════════════════════════════════════════════
 
     private void load() {
         File file = new File(path);
@@ -83,7 +83,9 @@ public class CSVTicketRepository implements TicketRepository {
         }
     }
 
+    // ══════════════════════════════════════════════════════════════════════════
     //  Implémentation de TicketRepository
+    // ══════════════════════════════════════════════════════════════════════════
 
     @Override
     public Set<Ticket> getTickets() {
