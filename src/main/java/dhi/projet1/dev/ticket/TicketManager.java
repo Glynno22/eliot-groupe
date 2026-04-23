@@ -167,6 +167,76 @@ public class TicketManager {
         repo.deleteTicket(t);
     }
 
+
+    // ══════════════════════════════════════════════════════════════════════════
+    //  Statistiques
+    // ══════════════════════════════════════════════════════════════════════════
+
+    /**
+     * Compte les tickets par statut.
+     *
+     * @return map statut → nombre de tickets
+     */
+    public Map<String, Long> statsByStatus() {
+        return repo.getTickets().stream()
+                .collect(Collectors.groupingBy(
+                        t -> t.getStatut().name(),
+                        Collectors.counting()
+                ));
+    }
+
+    /**
+     * Compte les tickets par priorité.
+     *
+     * @return map priorité → nombre de tickets
+     */
+    public Map<String, Long> statsByPriority() {
+        return repo.getTickets().stream()
+                .collect(Collectors.groupingBy(
+                        t -> t.getPriority().name(),
+                        Collectors.counting()
+                ));
+    }
+
+    /**
+     * Compte les tickets par service.
+     *
+     * @return map service → nombre de tickets
+     */
+    public Map<String, Long> statsByService() {
+        return repo.getTickets().stream()
+                .collect(Collectors.groupingBy(
+                        t -> t.getService().name(),
+                        Collectors.counting()
+                ));
+    }
+
+    // ══════════════════════════════════════════════════════════════════════════
+    //  Import / Export CSV
+    // ══════════════════════════════════════════════════════════════════════════
+
+    /**
+     * Importe des tickets depuis un fichier CSV externe.
+     * Les tickets importés sont fusionnés avec ceux du dépôt courant.
+     *
+     * @param path chemin du fichier CSV source
+     */
+    public void importCSV(String path) {
+        CSVTicketRepository temp = new CSVTicketRepository(path);
+        repo.saveTickets(temp.getTickets());
+    }
+
+    /**
+     * Exporte tous les tickets du dépôt courant dans un fichier CSV.
+     *
+     * @param path chemin du fichier CSV destination (créé ou écrasé)
+     */
+    public void exportCSV(String path) {
+        CSVTicketRepository temp = new CSVTicketRepository(path);
+        temp.saveTickets(repo.getTickets());
+    }
+
+
     // ══════════════════════════════════════════════════════════════════════════
     //  Helpers privés
     // ══════════════════════════════════════════════════════════════════════════
