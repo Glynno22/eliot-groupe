@@ -31,9 +31,8 @@ public class TicketManager {
         this.repo = Objects.requireNonNull(repo, "Le dépôt ne peut pas être null");
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Création
-    // ══════════════════════════════════════════════════════════════════════════
 
     /**
      * Crée et persiste un nouveau ticket avec le statut OPEN.
@@ -59,9 +58,8 @@ public class TicketManager {
         return t;
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Lecture / recherche
-    // ══════════════════════════════════════════════════════════════════════════
 
     /** Retourne tous les tickets. */
     public Set<Ticket> all() {
@@ -124,9 +122,8 @@ public class TicketManager {
                 .collect(Collectors.toList());
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Actions métier
-    // ══════════════════════════════════════════════════════════════════════════
 
     /**
      * Assigne un ticket à un technicien.
@@ -168,9 +165,9 @@ public class TicketManager {
     }
 
 
-    // ══════════════════════════════════════════════════════════════════════════
+
+
     //  Statistiques
-    // ══════════════════════════════════════════════════════════════════════════
 
     /**
      * Compte les tickets par statut.
@@ -211,9 +208,9 @@ public class TicketManager {
                 ));
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
+
     //  Import / Export CSV
-    // ══════════════════════════════════════════════════════════════════════════
 
     /**
      * Importe des tickets depuis un fichier CSV externe.
@@ -237,9 +234,8 @@ public class TicketManager {
     }
 
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Helpers privés
-    // ══════════════════════════════════════════════════════════════════════════
 
     private Optional<Ticket> find(String id) {
         return repo.getTickets().stream()
