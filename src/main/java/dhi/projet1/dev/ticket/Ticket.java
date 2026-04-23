@@ -21,11 +21,11 @@ import java.util.UUID;
  */
 public class Ticket {
 
-    // ── Formateur partagé pour la sérialisation ────────────────────────────────
+    // ── Formateur partagé pour la sérialisation
     private static final DateTimeFormatter FMT =
             DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
-    // ── Champs ─────────────────────────────────────────────────────────────────
+    // ── Champs
     private String          id;
     private String          title;
     private String          description;
@@ -108,9 +108,8 @@ public class Ticket {
         return t;
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
     //  Sérialisation CSV
-    // ══════════════════════════════════════════════════════════════════════════
+
 
     /**
      * Sérialise le ticket en une ligne CSV de 14 champs.
@@ -137,9 +136,9 @@ public class Ticket {
         );
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Comportements métier
-    // ══════════════════════════════════════════════════════════════════════════
+
 
     /**
      * Assigne le ticket à un technicien et le passe en statut PENDING.
@@ -197,9 +196,8 @@ public class Ticket {
         if (next == StatutTicket.CLOSED)   closedAt   = LocalDateTime.now();
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Helpers privés
-    // ══════════════════════════════════════════════════════════════════════════
 
     private void checkNotClosed() {
         if (statut == StatutTicket.CLOSED)
@@ -222,9 +220,9 @@ public class Ticket {
         return (s == null || s.isBlank()) ? null : s;
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Accesseurs
-    // ══════════════════════════════════════════════════════════════════════════
+
 
     public String             getId()          { return id; }
     public String             getTitle()       { return title; }
@@ -241,9 +239,9 @@ public class Ticket {
     public LocalDateTime      getResolvedAt()  { return resolvedAt; }
     public LocalDateTime      getClosedAt()    { return closedAt; }
 
-    // ══════════════════════════════════════════════════════════════════════════
+
     //  Affichage
-    // ══════════════════════════════════════════════════════════════════════════
+
 
     /**
      * Représentation lisible sur une ligne pour les listes console.
