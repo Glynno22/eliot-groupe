@@ -11,7 +11,6 @@ import java.util.Set;
  * <ul>
  *   <li>{@link InMemoryTicketRepository} – stockage volatile en mémoire (tests)</li>
  *   <li>{@link CSVTicketRepository} – persistance dans un fichier CSV</li>
- *   <li>{@link ExcelTicketRepository} – persistance dans un fichier Excel (.xlsx)</li>
  * </ul>
  */
 public interface TicketRepository {

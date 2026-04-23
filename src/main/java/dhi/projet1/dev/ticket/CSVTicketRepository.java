@@ -35,9 +35,7 @@ public class CSVTicketRepository implements TicketRepository {
         load();
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
     //  Chargement / persistance
-    // ══════════════════════════════════════════════════════════════════════════
 
     private void load() {
         File file = new File(path);
@@ -83,9 +81,7 @@ public class CSVTicketRepository implements TicketRepository {
         }
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
     //  Implémentation de TicketRepository
-    // ══════════════════════════════════════════════════════════════════════════
 
     @Override
     public Set<Ticket> getTickets() {
