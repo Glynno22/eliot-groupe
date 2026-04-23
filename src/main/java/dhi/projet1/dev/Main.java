@@ -16,7 +16,7 @@ import java.util.*;
  * Point d'entrée de l'application de gestion des tickets d'incident.
  *
  * <p>Lance un menu interactif en boucle dans le terminal.
- * Les tickets sont persistés dans un fichier CSV local.</p>
+ * Les tickets sont persistés dans un fichier CSV local. ok</p>
  *
  * <p>Usage : {@code java -jar ticket-manager.jar}</p>
  */
