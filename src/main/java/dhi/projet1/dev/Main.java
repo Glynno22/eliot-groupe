@@ -1,4 +1,4 @@
-package com.eco-pro;
+package dhi.projet1.dev-pro;
 
 public class Main {
     public static void main(String[] args) {
